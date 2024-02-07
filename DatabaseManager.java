@@ -43,7 +43,7 @@ public class DatabaseManager {
         /*
         Pokud do příkazu dosazujeme konkrétní data, nedáváme je přímo do prepareStatement, ale nahradíme daná místa otazníky a konkrétní hodnoty dosadíme na dalších řádcích
          */
-        PreparedStatement statement = c.prepareStatement("INSERT INTO table VALUES ?,?,?");
+        PreparedStatement statement = c.prepareStatement("INSERT INTO table VALUES (?,?,?)");
         /*
         Pomocí metod setString, setInt, ... dosazujeme konkrétní hodnoty za otazníky v příkazu. Indexace od 1
          */
