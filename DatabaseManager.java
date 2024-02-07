@@ -18,7 +18,7 @@ public class DatabaseManager {
         V inicializaci použijeme vytvořeme připojení a připravíme statement
         Do závorky píšeme SQL příkaz
          */
-        PreparedStatement statement = c.prepareStatement("SELECT * FROM table");
+        PreparedStatement statement = c.prepareStatement("SELECT * FROM tableName");
         /*
         Pokud používáme příkaz, který nám vrací nějaký data, potřebujeme použít ResultSet, abychom mohli s těmito daty pracovat
         Ze statementu vyvoláme executeQuery()
@@ -42,8 +42,9 @@ public class DatabaseManager {
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/database", "root", "");
         /*
         Pokud do příkazu dosazujeme konkrétní data, nedáváme je přímo do prepareStatement, ale nahradíme daná místa otazníky a konkrétní hodnoty dosadíme na dalších řádcích
+         ! Pokud nechceme za nějaké sloupce dosazovat hodnoty (standartně za ID), upravíme příkaz následovně: INSERT INTO tableName (column1, column2, column3) VALUES (?,?,?) !
          */
-        PreparedStatement statement = c.prepareStatement("INSERT INTO table VALUES (?,?,?)");
+        PreparedStatement statement = c.prepareStatement("INSERT INTO tableName VALUES (?,?,?)");
         /*
         Pomocí metod setString, setInt, ... dosazujeme konkrétní hodnoty za otazníky v příkazu. Indexace od 1
          */
